@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:background="#bebebe" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/ll_ctrl_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:paddingRight="10dp">
+
+            <Button
+                android:id="@+id/btn_start_activity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="startActivity"
+                android:textAllCaps="false" />
+
+            <TextView
+                android:id="@+id/tv_id"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="id" />
+
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/rg_launch_mode"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@id/ll_ctrl_top"
+            android:orientation="vertical"
+            android:checkedButton="@+id/rb_mode_standard_a">
+
+            <!--Standard-->
+            <RadioButton
+                android:id="@+id/rb_mode_standard_a"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="standard A"/>
+            <RadioButton
+                android:id="@+id/rb_mode_standard_b"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="standard B"/>
+            <RadioButton
+                android:id="@+id/rb_mode_standard_c"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="standard C (another affinity)"/>
+
+            <!--SingleTop-->
+            <RadioButton
+                android:id="@+id/rb_mode_single_top_a"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="singleTop A"/>
+            <RadioButton
+                android:id="@+id/rb_mode_single_top_b"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="singleTop B"/>
+            <RadioButton
+                android:id="@+id/rb_mode_single_top_c"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="singleTop C (another affinity)"/>
+
+            <!--SingleTask-->
+            <RadioButton
+                android:id="@+id/rb_mode_single_task_a"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="singleTask A"/>
+            <RadioButton
+                android:id="@+id/rb_mode_single_task_b"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="singleTask B"/>
+            <RadioButton
+                android:id="@+id/rb_mode_single_task_c"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="singleTask C (another affinity)"/>
+
+            <!--SingleInstance-->
+            <RadioButton
+                android:id="@+id/rb_mode_single_instance_a"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="singleInstance A"/>
+            <RadioButton
+                android:id="@+id/rb_mode_single_instance_b"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="singleInstance B"/>
+            <RadioButton
+                android:id="@+id/rb_mode_single_instance_c"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="singleInstance C (another affinity)"/>
+
+        </RadioGroup>
+
+        <LinearLayout
+            android:id="@+id/ll_flag"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/rg_launch_mode"
+            android:layout_below="@id/ll_ctrl_top"
+            android:orientation="vertical">
+
+            <CheckBox
+                android:id="@+id/cb_flag_new_task"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="FLAG_ACTIVITY_NEW_TASK"/>
+            <CheckBox
+                android:id="@+id/cb_flag_multiple_task"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="FLAG_ACTIVITY_MULTIPLE_TASK"/>
+            <CheckBox
+                android:id="@+id/cb_flag_clear_task"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="FLAG_ACTIVITY_CLEAR_TASK"/>
+            <CheckBox
+                android:id="@+id/cb_flag_task_on_home"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="FLAG_ACTIVITY_TASK_ON_HOME"/>
+            <CheckBox
+                android:id="@+id/cb_flag_single_top"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="FLAG_ACTIVITY_SINGLE_TOP"/>
+            <CheckBox
+                android:id="@+id/cb_flag_clear_top"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="FLAG_ACTIVITY_CLEAR_TOP"/>
+            <CheckBox
+                android:id="@+id/cb_flag_no_history"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="FLAG_ACTIVITY_NO_HISTORY"/>
+            <CheckBox
+                android:id="@+id/cb_flag_exclude_from_recents"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS"/>
+            <CheckBox
+                android:id="@+id/cb_flag_reorder_to_front"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="FLAG_ACTIVITY_REORDER_TO_FRONT"/>
+            <CheckBox
+                android:id="@+id/cb_flag_previous_is_top"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="FLAG_ACTIVITY_PREVIOUS_IS_TOP"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>
