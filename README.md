@@ -120,7 +120,4 @@ FLAG_ACTIVITY_PREVIOUS_IS_TOP
 
 [解开Android应用程序组件Activity的"singleTask"之谜](http://blog.csdn.net/luoshengyang/article/details/6714543)
 
-## Demo
----
-
-[彻底搞懂 Android Back Stack: TaskDemo](https://github.com/walfud/TaskDemo.git)
+[深入讲解Android中Activity launchMode](http://droidyue.com/blog/2015/08/16/dive-into-android-activity-launchmode/)
