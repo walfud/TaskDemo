@@ -8,29 +8,28 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".MainActivity"
-            android:screenOrientation="landscape">
+            android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".StandardAActivity" android:launchMode="standard" android:screenOrientation="landscape" />
-        <activity android:name=".StandardBActivity" android:launchMode="standard" android:screenOrientation="landscape" />
-        <activity android:name=".StandardCActivity" android:launchMode="standard" android:taskAffinity="com.walfud.taskdemo.another" android:screenOrientation="landscape" />
+        <activity android:name=".StandardAActivity" android:launchMode="standard" />
+        <activity android:name=".StandardBActivity" android:launchMode="standard" />
+        <activity android:name=".StandardCActivity" android:launchMode="standard" android:taskAffinity="com.walfud.taskdemo.another" />
 
-        <activity android:name=".SingleTopAActivity" android:launchMode="singleTop" android:screenOrientation="landscape" />
-        <activity android:name=".SingleTopBActivity" android:launchMode="singleTop" android:screenOrientation="landscape" />
-        <activity android:name=".SingleTopCActivity" android:launchMode="singleTop" android:taskAffinity="com.walfud.taskdemo.another" android:screenOrientation="landscape" />
+        <activity android:name=".SingleTopAActivity" android:launchMode="singleTop" />
+        <activity android:name=".SingleTopBActivity" android:launchMode="singleTop" />
+        <activity android:name=".SingleTopCActivity" android:launchMode="singleTop" android:taskAffinity="com.walfud.taskdemo.another" />
 
-        <activity android:name=".SingleTaskAActivity" android:launchMode="singleTask" android:screenOrientation="landscape" />
-        <activity android:name=".SingleTaskBActivity" android:launchMode="singleTask" android:screenOrientation="landscape" />
-        <activity android:name=".SingleTaskCActivity" android:launchMode="singleTask" android:taskAffinity="com.walfud.taskdemo.another" android:screenOrientation="landscape" />
+        <activity android:name=".SingleTaskAActivity" android:launchMode="singleTask" />
+        <activity android:name=".SingleTaskBActivity" android:launchMode="singleTask" />
+        <activity android:name=".SingleTaskCActivity" android:launchMode="singleTask" android:taskAffinity="com.walfud.taskdemo.another" />
 
-        <activity android:name=".SingleInstanceAActivity" android:launchMode="singleInstance" android:screenOrientation="landscape" />
-        <activity android:name=".SingleInstanceBActivity" android:launchMode="singleInstance" android:screenOrientation="landscape" />
-        <activity android:name=".SingleInstanceCActivity" android:launchMode="singleInstance" android:taskAffinity="com.walfud.taskdemo.another" android:screenOrientation="landscape" />
+        <activity android:name=".SingleInstanceAActivity" android:launchMode="singleInstance" />
+        <activity android:name=".SingleInstanceBActivity" android:launchMode="singleInstance" />
+        <activity android:name=".SingleInstanceCActivity" android:launchMode="singleInstance" android:taskAffinity="com.walfud.taskdemo.another" />
 
     </application>
 
