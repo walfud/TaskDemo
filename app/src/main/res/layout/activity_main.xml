@@ -5,11 +5,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <View
-        android:id="@+id/foo"
+    <HorizontalScrollView
+        android:id="@+id/hsv_task"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_heightPercent="30%" />
+        app:layout_heightPercent="30%" >
+
+    </HorizontalScrollView>
 
     <View
         android:id="@+id/sep"

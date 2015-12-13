@@ -1,14 +1,21 @@
 package com.walfud.taskdemo;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.HorizontalScrollView;
 import android.widget.RadioButton;
 import android.widget.TextView;
+
+import com.walfud.taskdemo.view.TaskView;
+
+import java.util.List;
 
 /**
  * Created by walfud on 2015/12/10.
@@ -16,6 +23,8 @@ import android.widget.TextView;
 public class BaseActivity extends Activity implements View.OnClickListener {
 
     private static long mId = 0;
+
+    private HorizontalScrollView mHsv;
 
     private Button mStartActivity;
     private TextView mIdTv;
@@ -49,6 +58,8 @@ public class BaseActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mHsv = $(R.id.hsv_task);
+
         mStartActivity = $(R.id.btn_start_activity);
         mIdTv = $(R.id.tv_id);
 
@@ -79,6 +90,25 @@ public class BaseActivity extends Activity implements View.OnClickListener {
         //
         mStartActivity.setOnClickListener(this);
         mIdTv.setText(String.format("id: %d", mId++));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        mHsv.removeAllViews();
+
+        ActivityManager activityManager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+        List<ActivityManager.AppTask> appTaskList = activityManager.getAppTasks();
+        for (ActivityManager.AppTask task : appTaskList) {
+            TaskView taskView = (TaskView) LayoutInflater.from(this).inflate(R.layout.view_task, mHsv, false);
+            task.getTaskInfo().
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
     @Override
