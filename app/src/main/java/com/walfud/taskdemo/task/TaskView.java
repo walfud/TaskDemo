@@ -2,6 +2,7 @@ package com.walfud.taskdemo.task;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -25,6 +26,7 @@ public class TaskView extends LinearLayout {
         mContext = context;
 
         setOrientation(VERTICAL);
+        setGravity(Gravity.CENTER_HORIZONTAL);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         layoutParams.setMargins(20, 20, 20, 20);
         setLayoutParams(layoutParams);

@@ -12,6 +12,7 @@ import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.walfud.taskdemo.task.TaskData;
 import com.walfud.taskdemo.task.TaskView;
@@ -133,6 +134,7 @@ public class BaseActivity extends Activity implements View.OnClickListener {
 
             case R.id.btn_exit: {
                 // TODO: impl
+                Toast.makeText(this, "TODO: not impl", Toast.LENGTH_SHORT).show();
                 break;
             }
 
