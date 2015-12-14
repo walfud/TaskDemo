@@ -110,6 +110,8 @@ public class BaseActivity extends Activity implements View.OnClickListener {
     protected void onResume() {
         super.onResume();
 
+        mTaskLl.removeAllViews();
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -224,7 +226,6 @@ public class BaseActivity extends Activity implements View.OnClickListener {
     }
 
     private void drawTask() {
-        mTaskLl.removeAllViews();
         TaskData taskData = TaskData.getInstance();
         for (Map.Entry<Integer, List<Integer>> kv : taskData.getData().entrySet()) {
             TaskView taskView = new TaskView(this);
