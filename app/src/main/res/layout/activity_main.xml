@@ -11,13 +11,22 @@
         android:layout_height="0dp"
         app:layout_heightPercent="30%" >
 
+        <LinearLayout
+            android:id="@+id/ll_task"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+
+        </LinearLayout>
+
     </HorizontalScrollView>
 
     <View
         android:id="@+id/sep"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_below="@id/foo"
+        android:layout_below="@id/hsv_task"
         android:background="#bebebe" />
 
     <ScrollView
@@ -32,7 +41,7 @@
 
             <LinearLayout
                 android:id="@+id/ll_ctrl_top"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="16dp"
                 android:paddingRight="10dp">
@@ -51,6 +60,13 @@
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
                     android:text="id" />
+
+                <Button
+                    android:id="@+id/btn_exit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="false"
+                    android:text="Exit"/>
 
             </LinearLayout>
 

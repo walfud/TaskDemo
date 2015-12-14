@@ -1,33 +1,37 @@
 package com.walfud.taskdemo;
 
 import android.app.Activity;
-import android.app.ActivityManager;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.HorizontalScrollView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-import com.walfud.taskdemo.view.TaskView;
+import com.walfud.taskdemo.task.TaskData;
+import com.walfud.taskdemo.task.TaskView;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by walfud on 2015/12/10.
  */
 public class BaseActivity extends Activity implements View.OnClickListener {
 
-    private static long mId = 0;
+    private static int sId = 0;
 
     private HorizontalScrollView mHsv;
+    private LinearLayout mTaskLl;
 
-    private Button mStartActivity;
+    private Button mStartActivityBtn;
     private TextView mIdTv;
+    private Button mExitBtn;
 
     private RadioButton mModeStandardA;
     private RadioButton mModeStandardB;
@@ -53,15 +57,19 @@ public class BaseActivity extends Activity implements View.OnClickListener {
     private CheckBox mFlagReorderToFront;
     private CheckBox mFlagPreviousIsTop;
 
+    private int mId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         mHsv = $(R.id.hsv_task);
+        mTaskLl = $(R.id.ll_task);
 
-        mStartActivity = $(R.id.btn_start_activity);
+        mStartActivityBtn = $(R.id.btn_start_activity);
         mIdTv = $(R.id.tv_id);
+        mExitBtn = $(R.id.btn_exit);
 
         mModeStandardA = $(R.id.rb_mode_standard_a);
         mModeStandardB = $(R.id.rb_mode_standard_b);
@@ -88,27 +96,32 @@ public class BaseActivity extends Activity implements View.OnClickListener {
         mFlagPreviousIsTop = $(R.id.cb_flag_previous_is_top);
 
         //
-        mStartActivity.setOnClickListener(this);
-        mIdTv.setText(String.format("id: %d", mId++));
+        mId = sId++;
+        mStartActivityBtn.setOnClickListener(this);
+        mIdTv.setText(String.format("id: %d", mId));
+        mExitBtn.setOnClickListener(this);
+
+        //
+        TaskData.getInstance().add(this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        mHsv.removeAllViews();
-
-        ActivityManager activityManager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
-        List<ActivityManager.AppTask> appTaskList = activityManager.getAppTasks();
-        for (ActivityManager.AppTask task : appTaskList) {
-            TaskView taskView = (TaskView) LayoutInflater.from(this).inflate(R.layout.view_task, mHsv, false);
-            task.getTaskInfo().
-        }
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                drawTask();
+            }
+        }, 2000);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+
+        TaskData.getInstance().remove(this);
     }
 
     @Override
@@ -118,13 +131,23 @@ public class BaseActivity extends Activity implements View.OnClickListener {
                 startActivity(parseIntent());
                 break;
 
+            case R.id.btn_exit: {
+                // TODO: impl
+                break;
+            }
+
             default:
                 break;
         }
     }
 
     // Function
-    public Intent parseIntent() {
+    public int getId() {
+        return mId;
+    }
+
+    // Internal
+    private Intent parseIntent() {
         Intent intent = new Intent();
 
         // Launch mode
@@ -198,7 +221,17 @@ public class BaseActivity extends Activity implements View.OnClickListener {
         return intent;
     }
 
-    // Internal
+    private void drawTask() {
+        mTaskLl.removeAllViews();
+        TaskData taskData = TaskData.getInstance();
+        for (Map.Entry<Integer, List<Integer>> kv : taskData.getData().entrySet()) {
+            TaskView taskView = new TaskView(this);
+            taskView.set(kv.getKey(), kv.getValue());
+
+            mTaskLl.addView(taskView);
+        }
+    }
+
     private <T extends View> T $(int resId) {
         return (T) findViewById(resId);
     }
