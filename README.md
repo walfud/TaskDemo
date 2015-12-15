@@ -131,3 +131,10 @@ FLAG_ACTIVITY_PREVIOUS_IS_TOP
 [解开Android应用程序组件Activity的"singleTask"之谜](http://blog.csdn.net/luoshengyang/article/details/6714543)
 
 [深入讲解Android中Activity launchMode](http://droidyue.com/blog/2015/08/16/dive-into-android-activity-launchmode/)
+
+## Contribute
+---
+
+此工程还需要很多努力才能变得更加完善, 比如: 目前 startActivity/back 后需要等待 2s 后才能对 task 进行绘制, 因为要等待 activity 的 onDestroy 完成; 再或者, 目前界面上 task 都是一个 id 标识, 不那么直观, 可以增加一些颜色, 比如 standard 用绿色, singleTop 用黄色等等(参考 [Activities-LaunchMode-demo](https://github.com/gnorsilva/Activities-LaunchMode-demo)). 希望你也能为它添砖加瓦, 帮助更多的人.
+
+Any question, feel free to contact me.
