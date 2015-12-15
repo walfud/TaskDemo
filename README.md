@@ -1,3 +1,13 @@
+# 这是一个帮助你理解和记忆 android startActivity 中 launch mode 和 flags 作用的 demo 工程
+---
+
+![screenshot](https://raw.githubusercontent.com/walfud/TaskDemo/master/doc/screenshot.png)
+
+上图中, 我们可以看到:
+* 当前 app 中有 4 个 task
+* 当前的 activity(id: 5) 位于 id=297 的 task 中
+
+
 ## xml 中 launchMode 共有四种:
 ---
 
