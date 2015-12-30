@@ -24,7 +24,9 @@ singleTask 和 singleInstance 是一类. 它们在系统中只能存在一个 in
 * singleTask 根据 affinity 决定在哪个 task 中启动. 如果存在该 affinity 所指定的 task, 则在该 task 中启动, 否则会新建一个该 affinity 的 task, 并在其中启动.
 * singleInstance 被启动的 activity 只能单独存在于一个独立的 task 中. 如果从该 task 再次启动其它 activity, 则新启动的 activity 会被放到其它 task 中. 其它规则同 singleTask
 
-以下是图例:
+以下是我总结的神图:
+
+1. 从 `standard` activity 中启动其它类型的 activity, 总结如图:
 
 ![start activity from `Standard`](https://raw.githubusercontent.com/walfud/TaskDemo/master/doc/standard.jpg)
 
