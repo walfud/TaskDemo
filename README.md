@@ -132,6 +132,8 @@ FLAG_ACTIVITY_PREVIOUS_IS_TOP
 
 [深入讲解Android中Activity launchMode](http://droidyue.com/blog/2015/08/16/dive-into-android-activity-launchmode/)
 
+[android深入解析Activity的launchMode启动模式，Intent Flag，taskAffinity](http://blog.csdn.net/self_study/article/details/48055011)
+
 ## Contribute
 ---
 
